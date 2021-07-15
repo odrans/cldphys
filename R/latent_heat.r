@@ -1,6 +1,6 @@
 #' Compute the vaporisation latent heat
-#' @param T numeric, air temperature in K
-#' @return numeric, latent heat of vaporisation in J / kg
+#' @param T numeric, air temperature (in K)
+#' @return numeric, latent heat of vaporisation (in J / kg)
 #' @export
 L_vap <- function(T) {
 
