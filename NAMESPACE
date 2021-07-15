@@ -2,6 +2,7 @@
 
 export(L_vap)
 export(T_virtual)
+export(cdnc)
 export(const)
 export(cw_adiab_ahmad)
 export(cw_adiab_albrecht)

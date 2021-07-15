@@ -4,6 +4,7 @@
 const <- function() {
 
   l <- list(
+    rho_w = 1E3, # Water density (kg m^-3)
     cp = 1003.5, # Specific heat of dry air at constant pressure (J kg^-1 K^-1)
     g = 9.81, # Gravitational acceleration constant (m s^-2)
     Rd = 287, # Specific gas constant for dry air (J kg^-1 K^-1)
