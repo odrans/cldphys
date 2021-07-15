@@ -2,4 +2,6 @@
 
 export(L_vap)
 export(const)
+export(es_w_koop)
+export(es_w_magnus)
 import(dplyr)
