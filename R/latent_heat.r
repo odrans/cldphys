@@ -4,6 +4,8 @@
 #' @export
 L_vap <- function(T) {
 
+  if(length(T) !=1 ) stop("Input should be one-dimensional")
+
   Mw <- cldphys::const()$Mw
 
   if(T < 273.15) {
