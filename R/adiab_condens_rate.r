@@ -42,9 +42,8 @@ cw_adiab_albrecht <- function(ta, p, use_elr = FALSE) {
 cw_adiab_ahmad <- function(ta, p, use_elr = FALSE) {
 
   l_const <- cldphys::const()
-  eps <- l_const$eps
+
   Rd <- l_const$Rd
-  g <- l_const$g
   elr <- l_const$gamma_env
   cp  <- l_const$cp
 
