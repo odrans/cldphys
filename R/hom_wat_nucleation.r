@@ -94,9 +94,6 @@ nucl_rate_wat_hom <- function(S, ta) {
   ## Mass of a water molecule
   m_w <- Mw / Na
 
-  ## Surface tension between liquid water and water vapor
-  sigma_wv <- cldphys::surf_tens_wat_vap(ta)
-
   ## Saturation vapor pressure of water
   es <- cldphys::es_w_koop(ta)
   e <- S * es

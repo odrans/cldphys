@@ -21,7 +21,7 @@ gibbs_vapor_ice <- function(r, ta, Si) {
 #' @param ta air temperature (in K)
 #' @return Gibbs free energy (in J)
 #' @export
-gibbs_wat_ice <- function(r, ta, ratio_param = FALSE) {
+gibbs_wat_ice <- function(r, ta) {
 
   kB <- cldphys::const()$kB
 
@@ -31,8 +31,6 @@ gibbs_wat_ice <- function(r, ta, ratio_param = FALSE) {
   ## Saturation vapor pressure of water and ice
   es_w <- cldphys::es_w_koop(ta)
   es_i <- cldphys::es_i_koop(ta)
-  S = es_w / es_i
-  if(ratio_param) S = es_w_i_ratio(ta)
 
   ## Gibbs free energy for the transition from water to ice
   G <- - (4 * pi * r^3) / (3 * v_ice(ta)) * kB * ta * log(es_w / es_i) + 4 * pi * r^2 * sigma_ice_wat
@@ -57,7 +55,7 @@ rc_vapor_ice <- function(ta, Si) {
 #' Critical ice embryo radius for the transition from water to ice
 #' @param ta air temperature (in K)
 #' @export
-rc_wat_ice <- function(ta, ratio_param = FALSE) {
+rc_wat_ice <- function(ta) {
 
   kB <- cldphys::const()$kB
 
@@ -67,8 +65,7 @@ rc_wat_ice <- function(ta, ratio_param = FALSE) {
   ## Saturation vapor pressure of water and ice
   es_w <- cldphys::es_w_koop(ta)
   es_i <- cldphys::es_i_koop(ta)
-  S = es_w / es_i
-  if(ratio_param) S = es_w_i_ratio(ta)
+  S <- es_w / es_i
 
   rc <- 2 * v_ice(ta) * sigma_ice_wat / (kB * ta * log(S))
 
@@ -115,9 +112,6 @@ nucl_rate_ice_hom <- function(Si, ta) {
 
   ## Mass of a water molecule
   m_w <- Mw / Na
-
-  ## Surface tension between liquid water and water vapor
-  sigma_iv <- cldphys::surf_tens_ice_vap(ta)
 
   ## Saturation vapor pressure of water
   es <- cldphys::es_i_koop(ta)
@@ -168,12 +162,6 @@ nucl_rate_ice_hom_wat <- function(ta, fix_Cpre = FALSE) {
   Mw <- cldphys::const()$Mw
   h <- 6.62607015e-34
 
-  ## Mass of a water molecule
-  m_w <- Mw / Na
-
-  ## Surface tension between liquid water and water vapor
-  sigma_iw <- cldphys::surf_tens_ice_wat(ta)
-
   ## Saturation vapor pressure of water
   ## es <- cldphys::es_i_koop(ta)
   ## e <- Si * es
@@ -209,7 +197,7 @@ nucl_rate_ice_hom_wat <- function(ta, fix_Cpre = FALSE) {
   N_c <- N1 * exp(- dG_c / (kB * ta))
 
   ## Prefactor in Ickes et al. (2015), should be around 10^41 regardless of the temperature
-  Cpre <- omega_c * Nc * Z *  N1 * kB * ta / h
+  ## Cpre <- omega_c * Nc * Z *  N1 * kB * ta / h
 
   ## Nucleation rate (m^-3 s^-1)
   J <-  N_c * omega_c * w * Z
