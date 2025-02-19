@@ -2,16 +2,20 @@
 % Please edit documentation in R/sat_vap_press.r
 \name{es_w_koop}
 \alias{es_w_koop}
-\title{Saturation vapour pressure with respect to water, using the empirical formula by Murphy and Koop (2005)}
+\title{Saturation vapour pressure with respect to water
+Parameterization from Murphy and Koop (2005), Eq. 10
+Considered valid for 123 < T < 332 K}
 \usage{
-es_w_koop(T)
+es_w_koop(ta)
 }
 \arguments{
-\item{T}{numeric, air temperature (in K)}
+\item{ta}{numeric, air temperature (zin K)}
 }
 \value{
 numeric, saturation vapour pressure (in Pa)
 }
 \description{
-Saturation vapour pressure with respect to water, using the empirical formula by Murphy and Koop (2005)
+Saturation vapour pressure with respect to water
+Parameterization from Murphy and Koop (2005), Eq. 10
+Considered valid for 123 < T < 332 K
 }

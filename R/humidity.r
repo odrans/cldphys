@@ -21,7 +21,7 @@ spec_hum <- function(e, p) {
 
   eps <- cldphys::const()$eps
 
-  q_v<- eps * e / (p - e + eps * e)
+  q_v <- eps * e / (p - e + eps * e)
 
   return(q_v)
 

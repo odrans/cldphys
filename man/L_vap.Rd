@@ -4,10 +4,10 @@
 \alias{L_vap}
 \title{Compute the vaporisation latent heat}
 \usage{
-L_vap(T)
+L_vap(ta)
 }
 \arguments{
-\item{T}{numeric, air temperature (in K)}
+\item{ta}{numeric, air temperature (in K)}
 }
 \value{
 numeric, latent heat of vaporisation (in J / kg)

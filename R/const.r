@@ -10,7 +10,9 @@ const <- function() {
     Rd = 287, # Specific gas constant for dry air (J kg^-1 K^-1)
     Rv = 461.5, # Specific gas constant for water vapor (J kg^-1 K^-1)
     Mw = 18 * 1E-3,  ## Molar mass of water (kg mol^-1)
-    gamma_env = 6.49E-3 ## Environmental lapse rate (K m^-1)
+    gamma_env = 6.49E-3, ## Environmental lapse rate (K m^-1)
+    kB = 1.380649E-23, # Boltzmann constant (J K^-1)
+    Na = 6.02214076E23 # Avogadro constant (mol^-1)
   )
 
   l$eps <- l$Rd / l$Rv # Dry to moist gas constant ratio
